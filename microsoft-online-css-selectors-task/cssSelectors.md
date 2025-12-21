@@ -1,0 +1,58 @@
+Login page
+
+- Sign In section
+input[id= 'i0116'] - 'Email' - text field;
+a[href^= 'https://login.live.com/oauth20_authorize']   - 'Create one!' - link;
+a[id = 'cantAccessAccount'] - 'Can't access your account' - link;
+input#idBtn_Back - 'Back' - button;
+input#idSIButton9 - 'Next' - button;
+
+- Password section
+input#i0118[name = 'passwd'] - 'Password' - text field;
+a#idA_PWD_ForgotPassword - 'Forgot my password' - link;
+input#idSIButton9 - 'Sign in' - button
+
+Outlook online main page
+
+- Top bar menu
+button[aria-label ='Hide navigation pane'] - 'Three lines' - button;
+button[id = '1'] - 'Home' - button;
+.ms-Button.root-177 - 'View' - button;
+button[aria-describedby^='ktp-'][id = '11000'] - 'Help' - button;
+
+-View menu bar
+button[id = '643'] - 'View settings' - button;
+button[data-unique-id* = '-654']  - 'Messages' - drop-down list;
+button[data-unique-id = 'Ribbon-646'] - 'Layout' - drop-down list;
+button[data-unique-id = 'Ribbon-649'] - 'Density' - drop-down list;
+button#RibbonOverflowMenu-overflow - 'Three dots' - drop-down list;
+
+-Layout section
+button[name = 'Ribbon'] - 'Ribbon' - element;
+button[aria-label*="Folder pane"] - 'Folder pane' value - element;
+i[data-icon-name = 'PanelLeftFocusRightFilled'] 'Reading pane' - icon
+button#Time - 'My Day - Show' - button;
+button#flexPaneCloseButton - 'My Day - Hide' - button
+
+-Three lines -> Folders section
+div[data-folder-name = 'inbox'] - 'Inbox' - button;
+div[data-folder-name = 'drafts'] - 'Drafts' - button;
+div[data-folder-name = 'deleted items'] - 'Deleted items' - button
+div[data-folder-name = 'junk email'] - 'Junk Email' - button
+
+- Three lines -> Favorites section
+div[data-folder-name = 'sent items'] - 'Sent Items' - button;
+'Drafts' - button - can't find
+span.fui-MenuItem__content - 'Add favorite' - button
+
+- Open any email -> Email section
+div[role = 'heading'] span - 'Sender' - text
+div[data-testid = 'RecipientWell'] - 'Receiver' - text
+div[data-testid = 'SentReceivedSavedTime'] - 'Date and time' - text
+span.fui-Button__icon i.fui-Icon-font.fui-Icon-regular - 'Smile' - icon
+i[data-icon-name='ArrowReplyRegular'].ms-Icon  - 'Reply' - icon
+i[data-icon-name='ArrowReplyAllRegular'].ms-Icon  - 'Reply all' - icon
+button[aria-label='More actions'] - 'Three dots' - button
+button[aria-label='Reply'].ms-Button.ms-Button--commandBar - 'Reply' - button
+button[aria-label = 'Forward'].ms-Button.ms-Button--commandBar - 'Forward' - button
+table tbody - 'Body' - area
