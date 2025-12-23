@@ -49,3 +49,20 @@ Last product - checkbox - couldn't find;
 //div[@class='thumbnail_wrap thumbnails']//p[@class = 'bottle_price'] - Product price - element;
 //div[@class='thumbnail_wrap thumbnails']//input[@class = 'quantity'] - Product quantity - text box;
 //div[@class='thumbnail_wrap thumbnails']//div[@class = 'prod-badge on_sale'] | //div[@class = 'prod-badge goody_direct'] - 'Good Direct' or 'On Sale' - label/badge
+
+
+- 'Pickup or Delivery' section
+//div[@class='custom custom_check_radio custom_radio']//label[@for = 'pdp-wi4101122-3'] - 'Delivery' - radio button;
+//div[@class='custom custom_check_radio custom_radio']//label[@for = 'pdp-wi4101122-1'] - 'In Store Pickup' - radio button
+
+
+- 'Order Summary' section 
+//div[@class = 'sub_total'] - 'Sub-Total' - row element
+//span[@id = 'CC-checkoutOrderSummary-shippingName'] - 'Delivery' - row element;
+//span[@data-bind = "widgetLocaleText:'salesTaxText'"] - 'Sales Tax' - row element;
+
+-Cart Summary' section
+//section[@summary = "Cart Summary"]//div[text()='Quantity'] - 'Quantity' plus - element;
+//section[@summary = "Cart Summary"]//div[text()='Item Total'] - 'Item Total' value - element;
+//span[@class = 'remove-btn']/i[@class = 'fa fa-times-circle'] - 'remove' - icon;
+//div[@class = 'stock_msg'] - 'In stock' - text;
