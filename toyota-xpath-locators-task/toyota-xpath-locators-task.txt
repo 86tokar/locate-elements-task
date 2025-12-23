@@ -1,0 +1,23 @@
+Main Page
+
+- Header
+//button[@class = 'main-nav-link main-nav-link select-vehicle'] - 'Vehicles' - button;
+//button[@class = 'main-nav-link shopping-tools'] - 'Shopping Tools' - button;
+//button[@class = 'main-nav-link main-nav-link owners'] - 'Owners' - button;
+//div[@class = 'user-icon-wrap'] - 'Account action' - button;
+//a[@class = 'logo'] - 'Logo' - button;
+
+- Account action popup
+//div[@class = 'account-actions-container']/button[@class = 'button primary sign-in-btn'] - 'Sign In' - button;
+//a[@class = 'button secondary outline create-account-btn'] - 'Create Account' - button;
+//a[@href = 'https://www.toyota.com/saves'] - 'View Saves' - link;
+//a[@href = '/my-dashboard/payments'] - 'Manage Payments' - link; 
+//input[@name = 'zipcode'] - 'Zip Code' - text box;
+//button[normalize-space()='Update'] - 'Update' - button;
+
+- Vehicles drop-down options
+//a[@href = '/corollacross/'] - Specific model - link;
+//a[@href = '/configurator/build/step/model/year/2026/series/corollacross/'] - 'Build' specific model - link;
+//a[@href = '/corollacross/']//p[@class='short-description']/text()[1] - 'Price' of specific model - text;
+//li[@data-model-category = 'trucks'] - 'Trucks' - section button;
+//li[@data-model-category = 'upcoming-vehicle'] - 'Upcoming Vehicles' - section button
