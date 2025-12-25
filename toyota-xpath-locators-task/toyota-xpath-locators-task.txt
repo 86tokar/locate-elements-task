@@ -21,3 +21,55 @@ Main Page
 //a[@href = '/corollacross/']//p[@class='short-description']/text()[1] - 'Price' of specific model - text;
 //li[@data-model-category = 'trucks'] - 'Trucks' - section button;
 //li[@data-model-category = 'upcoming-vehicle'] - 'Upcoming Vehicles' - section button
+
+Specific model page. 
+
+- Navigation menu
+//div[@class = 'item-action']/a[@href = '#overview'] - 'Overview' - link;
+//div[@class = 'item-action']/a[@href = '#gallery'] - 'Gallery' - link;
+//div[@class = 'item-action']//a[@href = '#features'] - 'Features' - link;
+//div[@class = 'menu-item-fixed']/a[contains(@href, '/configurator/build/step/model')] - 'Build' - link
+
+- Central content section
+(//button[@aria-label = 'rotate the car anti-clockwise'])[1] - 'Drag' area - button;
+(//button[@aria-label='Hydro Blue [extra_cost_color]'])[1] - 'Blue' color - button;
+(//button[@aria-label='Elemental Silver Metallic [extra_cost_color]'])[1] - 'Silver Metallic' color - button;
+(//span[@class = 'color-selector__name disclaimer'])[1] - 'Color name' - text;
+//ul[@data-aarole = 'cta-container']//a[contains(@href, '/configurator/build/step/model')] -  'Build Now' - link;
+
+- Footer
+//a[@href = 'https://www.toyota.com/preferences?source=TOYOTA-COM&brand=Toyota'] - 'Manage Preferences' - link;
+//a[@href = 'https://www.youtube.com/user/ToyotaUSA'] - 'Youtube' - link;
+//a[@href = 'https://careers.toyota.com/us/en/'] - 'Careers' - link;
+//a[@href = '/brand/'] -  'About Us' - link;
+//a[@href = '/usa/'] - 'Our Company' - link;
+
+
+Build page
+
+- Navigation menu
+ (//button[@data-id = 'color'])[1] - 'Colors' - button;
+ (//button[@data-id = 'powertrain'])[1] - 'Powertrain' - button; 
+ (//button[@data-id = 'packages'])[1] - 'Packages' - button;
+ (//div[@class = 'price-wrapper']//span)[1] - 'Price' value - text;
+ 'Three dots' - button - couldn't find;
+
+-  Selection section
+//section[@class = 'vcr-selection-wrapper powertrain'] - 'Powertrain' - grid;
+//section[@class = 'vcr-selection-wrapper packages'] - 'Packages' - grid; 
+//div[@class = 'vcr-selection-group-title-text' and text() = 'Engine'] - 'Engine' - text;
+//div[@class = 'vcr-selection-group-title-text' and text() = 'Drivetrain'] - 'Drivetrain' - text;
+//div[@id = 'packages-group'] - 'Packages' - grid; 
+//button[@class = 'select'] - 'Add +' specific package - button; 
+//div[@data-aa-content-section = 'build Accessories tab'] - 'Accessories' - grid;
+//div[@class = 'vcr-selection-group-title-text' and text() = 'Protection'] - 'Protection' group - button;
+//div[@class = 'body-03 desc'] - 'Details' of specific protection item - text;
+//button[@data-btntype = 'add'] - 'Add +' specific protection item - button;
+(//div[@class = 'vcr-selection-card vertical multiple accessory']//div[@class = 'body-03 msrp'])[1] 'Price' of specific protection item - text;
+//button[@class = 'build-price-button cta button secondary transparent outline dark'] - 'Inventory' - button;
+'Summary' - button - couldn't find;
+
+- Central section;
+//div[@class = 'selection-nav']/div[@class = 'name-container']/span - Model name - text;
+//img[@alt = 'Exterior-display Image'] - 'Interior' display - image;
+//div[@class = 'fullscreen-cta  exterior disclaimer'] - 'Full screen' circle - element

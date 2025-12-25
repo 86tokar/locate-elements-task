@@ -20,7 +20,7 @@ button[id = '1'] - 'Home' - button;
 .ms-Button.root-177 - 'View' - button;
 button[aria-describedby^='ktp-'][id = '11000'] - 'Help' - button;
 
--View menu bar
+- View menu bar
 button[id = '643'] - 'View settings' - button;
 button[data-unique-id* = '-654']  - 'Messages' - drop-down list;
 button[data-unique-id = 'Ribbon-646'] - 'Layout' - drop-down list;
@@ -56,3 +56,14 @@ button[aria-label='More actions'] - 'Three dots' - button
 button[aria-label='Reply'].ms-Button.ms-Button--commandBar - 'Reply' - button
 button[aria-label = 'Forward'].ms-Button.ms-Button--commandBar - 'Forward' - button
 table tbody - 'Body' - area
+
+
+Additioanl buttons
+button[aria-label = 'App launcher'] - NineDots;
+button[aria-label = 'Mail'] - MailApp;
+button[aria-label = 'Calendar'] - CalendarApp;
+button[aria-label = 'More apps'] - MoreApp;
+a[id = 'O365_AppName'] - OutlookLogo;
+div[id = 'searchBoxId-Mail'] - SearchInput;
+button[id = 'O365_AppTile_SkypeTeams'] - TeamsButton; 
+button[id = 'owaActivityFeedButton'] - NotificationButton; 
