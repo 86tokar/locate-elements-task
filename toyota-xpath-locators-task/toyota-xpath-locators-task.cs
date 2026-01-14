@@ -3,9 +3,11 @@ public class ToyotaMainPage
 	private string GetNavLinkXPath(string className) => $"//button[@class = 'main-nav-link {className}']";
 	private string GetActionLinkXPath(string href) => $"//a[@href = '{href}']";
 	private string GetGroupLabelXPath(string text) => $"//div[@class = 'vcr-selection-group-title-text' and text() = '{text}']";
+	private string GetLinkXPath(string linkText) => $"//div[@class = 'item-action']//a[contains(text(), '{linkText}')]";
+    private string GetButtonXPath(string dataId) => $"(//button[@data-id = '{dataId}'])[1]";
 
-	// --- Header ---
-	public By VehiclesButton => By.XPath(GetNavLinkXPath("main-nav-link select-vehicle"));
+    // --- Header ---
+    public By VehiclesButton => By.XPath(GetNavLinkXPath("main-nav-link select-vehicle"));
 	public By ShoppingToolsButton => By.XPath(GetNavLinkXPath("shopping-tools"));
 	public By OwnersButton => By.XPath(GetNavLinkXPath("main-nav-link owners"));
 	public By AccountActionButton => By.XPath("//div[@class = 'user-icon-wrap']");
@@ -26,11 +28,11 @@ public class ToyotaMainPage
 	public By TrucksSectionButton => By.XPath("//li[@data-model-category = 'trucks']");
 	public By UpcomingVehiclesSectionButton => By.XPath("//li[@data-model-category = 'upcoming-vehicle']");
 
-	// --- Navigation menu (Specific model page) ---
-	public By OverviewLink => By.XPath("//div[@class = 'item-action']/a[@href = '#overview']");
-	public By GalleryLink => By.XPath("//div[@class = 'item-action']/a[@href = '#gallery']");
-	public By FeaturesLink => By.XPath("//div[@class = 'item-action']//a[@href = '#features']");
-	public By BuildLink => By.XPath("//div[@class = 'menu-item-fixed']/a[contains(@href, '/configurator/build/step/model')]");
+    // --- Navigation menu (Specific model page) ---
+    public By OverviewLink => By.XPath(GetLinkXPath("Overview"));
+    public By GalleryLink => By.XPath(GetLinkXPath("Gallery"));
+    public By FeaturesLink => By.XPath(GetLinkXPath("Features"));
+    public By BuildLink => By.XPath("//div[@class = 'menu-item-fixed']/a[contains(@href, '/configurator/build/step/model')]");
 
 	// --- Central content section ---
 	public By DragAreaButton => By.XPath("(//button[@aria-label = 'rotate the car anti-clockwise'])[1]");
@@ -46,11 +48,11 @@ public class ToyotaMainPage
 	public By AboutUsLink => By.XPath("//a[@href = '/brand/']");
 	public By OurCompanyLink => By.XPath("//a[@href = '/usa/']");
 
-	// --- Navigation menu (Build page) ---
-	public By ColorsNavButton => By.XPath("(//button[@data-id = 'color'])[1]");
-	public By PowertrainNavButton => By.XPath("(//button[@data-id = 'powertrain'])[1]");
-	public By PackagesNavButton => By.XPath("(//button[@data-id = 'packages'])[1]");
-	public By BuildPriceValue => By.XPath("(//div[@class = 'price-wrapper']//span)[1]");
+    // --- Navigation menu (Build page) ---
+    public By ColorsNavButton => By.XPath(GetButtonXPath("color"));
+    public By PowertrainNavButton => By.XPath(GetButtonXPath("powertrain"));
+    public By PackagesNavButton => By.XPath(GetButtonXPath("packages"));
+    public By BuildPriceValue => By.XPath("(//div[@class = 'price-wrapper']//span)[1]");
 
 	// --- Selection section ---
 	public By PowertrainGrid => By.XPath("//section[@class = 'vcr-selection-wrapper powertrain']");

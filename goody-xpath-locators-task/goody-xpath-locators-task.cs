@@ -1,10 +1,16 @@
 public class MainPage
 {
-	private string GetSectionXPath(string title) => $"//a[@title = '{title}']";
+	private string GetSectionXPath(string sectionTitle) => $"//a[@title = '{sectionTitle}']";
 	private string GetCountryCheckboxXPath(string idSuffix) => $"//label[@for = 'CC-guidedNavigation-refinementCheckboxValue-{idSuffix}']/div[@class = 'fill']";
+	private string GetCategoryXPath(string sectionTitle, string categoryTitle) => $"//a[@title = '{sectionTitle}']/following::a[@title = '{categoryTitle}']";
+	private string GetFilterDropDownXPath(string filterTitle) => $"//button[contains(@class, 'button_guided_nav') and contains(text(), '{filterTitle}')]";
+    private string GetRadioButtonXPath(string buttonName) => $"//label[contains(@class, 'label-radio') and contains(text(), '{buttonName}')];
 
-	// --- Header ---
-	public By SearchTextBox => By.XPath("//input[@aria-label = 'Search Text']");
+    private const string ProductTable = "//*[contains(@id, 'CC-productListing')]";
+    private const string ThumbnailsContainer = $"{ProductTable}//div[@class='thumbnail_wrap thumbnails']";
+
+    // --- Header ---
+    public By SearchTextBox => By.XPath("//input[@aria-label = 'Search Text']");
 	public By SearchButton => By.XPath("//button[@aria-label = 'Search']");
 	public By SignInButton => By.XPath("//a[@href = '/login']");
 	public By CartIcon => By.XPath("//a[@id='CC-header-cart-empty']/div[@class='cart-icon']");
@@ -19,39 +25,39 @@ public class MainPage
 	public By GiftCardsSectionButton => By.XPath(GetSectionXPath("Gift Cards"));
 	public By TopPicksSectionButton => By.XPath(GetSectionXPath("Top Picks"));
 
-	// --- Category's buttons ---
-	public By RedWineCategoryButton => By.XPath("//a[@title = 'Wine']/following::a[@title = 'Red Wine']");
-	public By WhiteWineCategoryButton => By.XPath("//a[@title = 'Wine']/following::a[@title = 'White Wine']");
-	public By PorterBeerCategoryButton => By.XPath("//a[@title = 'Beer']/following::a[@title = 'Porter']");
-	public By JapanBeerCategoryButton => By.XPath("//a[@title = 'Beer']/following::a[@title = 'Imported Beer']/following::a[@title = 'Japan']");
-	public By IrishWhiskeyCategoryButton => By.XPath("//a[@title = 'Liquor']/following::a[@title = 'Irish Whiskey']");
+    // --- Category's buttons ---
+    public By RedWineCategoryButton => By.XPath(GetCategoryXPath("Wine", "Red Wine"));
+    public By WhiteWineCategoryButton => By.XPath(GetCategoryXPath("Wine", "White Wine"));
+    public By PorterBeerCategoryButton => By.XPath(GetCategoryXPath("Beer", "Porter"));
+    public By JapanBeerCategoryButton => By.XPath($"{GetCategoryXPath("Beer", "Imported Beer")}/following::a[@title = 'Japan']");
+    public By IrishWhiskeyCategoryButton => By.XPath(GetCategoryXPath("Liquor", "Irish Whiskey"));
 
-	// --- Filter's drop-downs (Red Wine Page) ---
-	public By WineTypeDropDown => By.XPath("//button[@id = 'CC-guidedNavigation-dimensionHeader-0']");
-	public By CountryDropDown => By.XPath("//button[@id = 'CC-guidedNavigation-dimensionHeader-2']");
-	public By BrandDropDown => By.XPath("//button[@id = 'CC-guidedNavigation-dimensionHeader-4']");
+    // --- Filter's drop-downs (Red Wine Page) ---
+    public By WineTypeDropDown => By.XPath(GetFilterDropDownXPath("Wine Type"));
+    public By CountryDropDown => By.XPath(GetFilterDropDownXPath("Country"));
+    public By BrandDropDown => By.XPath(GetFilterDropDownXPath("Brand"));
 
-	// --- Country drop-down details ---
-	public By FranceCheckbox => By.XPath(GetCountryCheckboxXPath("2_1"));
+    // --- Country drop-down details ---
+    public By FranceCheckbox => By.XPath(GetCountryCheckboxXPath("2_1"));
 	public By ItalyCheckbox => By.XPath(GetCountryCheckboxXPath("2_2"));
 	public By SpainCheckbox => By.XPath(GetCountryCheckboxXPath("2_6"));
 	public By ArgentinaCheckbox => By.XPath(GetCountryCheckboxXPath("2_4"));
 	public By FilterSearchTextBox => By.XPath("//input[@id = 'searchBox-2']");
 
-	// --- Table / Product List ---
-	public By FirstProductElement => By.XPath("//div[@class='thumbnail_wrap thumbnails']/div[1]");
-	public By OutOfStockProduct => By.XPath("//div[@class='thumbnail_wrap thumbnails']//p[text()='Currently out of stock']");
-	public By AddToCartSpecificButton => By.XPath("//div[@class='thumbnail_wrap thumbnails']/div[1]//button[text()='Add to cart']");
-	public By ProductPriceLabel => By.XPath("//div[@class='thumbnail_wrap thumbnails']//p[@class = 'bottle_price']");
-	public By ProductQuantityTextBox => By.XPath("//div[@class='thumbnail_wrap thumbnails']//input[@class = 'quantity']");
-	public By ProductBadge => By.XPath("//div[@class = 'prod-badge on_sale'] | //div[@class = 'prod-badge goody_direct']");
+    // --- Table / Product List ---
+    public By FirstProductElement => By.XPath($"{ThumbnailsContainer}/div[1]");
+    public By OutOfStockProduct => By.XPath($"{ThumbnailsContainer}//p[text()='Currently out of stock']");
+    public By AddToCartSpecificButton => By.XPath($"{ThumbnailsContainer}/div[1]//button[text()='Add to cart']");
+    public By ProductPriceLabel => By.XPath($"{ThumbnailsContainer}//p[@class = 'bottle_price']");
+    public By ProductQuantityTextBox => By.XPath($"{ThumbnailsContainer}//input[@class = 'quantity']");
+    public By ProductBadge => By.XPath($"{ThumbnailsContainer}//div[contains(@class, 'prod-badge')]");
 
-	// --- Pickup or Delivery section ---
-	public By DeliveryRadioButton => By.XPath("//div[@class='custom custom_check_radio custom_radio']//label[@for = 'pdp-wi4101122-3']");
-	public By InStorePickupRadioButton => By.XPath("//div[@class='custom custom_check_radio custom_radio']//label[@for = 'pdp-wi4101122-1']");
+    // --- Pickup or Delivery section ---
+    public By DeliveryRadioButton => By.XPath(GetRadioButtonXPath("Delivery"));
+    public By InStorePickupRadioButton => By.XPath(GetRadioButtonXPath("In-Store Pickup"));
 
-	// --- Order Summary section ---
-	public By SubTotalRow => By.XPath("//div[@class = 'sub_total']");
+    // --- Order Summary section ---
+    public By SubTotalRow => By.XPath("//div[@class = 'sub_total']");
 	public By DeliverySummaryRow => By.XPath("//span[@id = 'CC-checkoutOrderSummary-shippingName']");
 	public By SalesTaxRow => By.XPath("//span[@data-bind = \"widgetLocaleText:'salesTaxText'\"]");
 
